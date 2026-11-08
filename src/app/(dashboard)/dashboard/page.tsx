@@ -16,7 +16,7 @@ import {
   Info,
 } from "lucide-react";
 
-const FADE_UP = {
+const FADE_UP: any = {
   hidden: { opacity: 0, y: 24 },
   show: (i: number) => ({
     opacity: 1,

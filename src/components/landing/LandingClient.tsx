@@ -1,16 +1,13 @@
-﻿"use client";
+"use client";
 
 import Link from "next/link";
 import { motion } from "framer-motion";
 import {
   Hand,
   Eye,
-  Ear,
-  Brain,
   Volume2,
   Camera,
   Shield,
-  Zap,
   ArrowRight,
   HeartHandshake,
   Mic,
@@ -18,18 +15,23 @@ import {
   MessageCircle,
   Accessibility,
   Sparkles,
+  Smartphone,
+  Globe2,
+  Zap,
+  Heart,
+  Bot,
+  HelpCircle,
 } from "lucide-react";
 import { ThemeLogo } from "@/components/layout/ThemeLogo";
-import { ThemeToggle } from "@/components/layout/ThemeToggle";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 32 },
+  hidden: { opacity: 0, y: 28 },
   visible: (i = 0) => ({
     opacity: 1,
     y: 0,
-    transition: { delay: i * 0.08, duration: 0.55, ease },
+    transition: { delay: i * 0.07, duration: 0.5, ease },
   }),
 };
 
@@ -37,16 +39,16 @@ const FEATURES = [
   {
     Icon: Hand,
     title: "TanganBicara AI",
-    desc: "Gerakan tangan dan bahasa isyarat diterjemahkan secara langsung menjadi suara AI bahasa Indonesia yang alami. Percakapan dua arah dengan siapapun tanpa hambatan.",
+    desc: "Gerakan tangan dan bahasa isyarat BISINDO diterjemahkan langsung menjadi suara bahasa Indonesia. Dilengkapi mode dialog 2 arah untuk berkomunikasi dengan siapapun.",
     tag: "Tunawicara & Tunarungu",
-    color: "#7C3AED",
+    color: "#6D28D9",
     href: "/dashboard/sign-to-voice",
     highlight: true,
   },
   {
     Icon: Eye,
-    title: "Mata AI â€” Deskriptor Visual",
-    desc: "Arahkan kamera ke lingkungan sekitar, teks dokumen, uang kertas, atau rintangan jalan. AI akan membacakan keterangannya dengan lantang secara otomatis.",
+    title: "Mata AI — Deskriptor Visual",
+    desc: "Arahkan kamera ke ruangan, dokumen, uang kertas, atau rintangan. AI menganalisis dan langsung membacakan keterangannya secara jelas melalui suara.",
     tag: "Tunanetra & Low Vision",
     color: "#2563EB",
     href: "/dashboard/vision-describer",
@@ -54,160 +56,165 @@ const FEATURES = [
   },
   {
     Icon: Mic,
-    title: "Suara Perintah & Navigasi",
-    desc: "Kendalikan seluruh aplikasi hanya dengan suara. Navigasi halaman, buka fitur, dan dengarkan konten tanpa menyentuh layar atau keyboard sama sekali.",
-    tag: "Tunanetra & Disabilitas Fisik",
+    title: "Navigasi & Perintah Suara",
+    desc: "Kendalikan seluruh aplikasi cukup dengan berbicara dalam bahasa Indonesia. Berpindah halaman dan dengarkan isi informasi tanpa sentuh layar.",
+    tag: "Tunanetra & Fisik",
     color: "#059669",
-    href: "/dashboard",
+    href: "/dashboard/voice-commands",
     highlight: false,
   },
   {
     Icon: ScanLine,
     title: "Pelacak Tatapan Mata (Eye Tracking)",
-    desc: "Navigasi cursor dan klik elemen secara otomatis menggunakan gerakan mata (Dwell Click) atau kedipan mata (Blink Click) â€” tanpa mouse, tanpa keyboard.",
-    tag: "Disabilitas Fisik & Tangan",
+    desc: "Navigasi otomatis menggunakan pandangan mata (Dwell Click) atau kedipan mata (Blink Click) — bebas digunakan tanpa mouse atau keyboard.",
+    tag: "Disabilitas Fisik & Motorik",
     color: "#D97706",
-    href: "/dashboard",
+    href: "/dashboard/eye-tracking",
     highlight: false,
   },
   {
-    Icon: MessageCircle,
-    title: "Asisten Percakapan AI",
-    desc: "AI conversational yang memahami konteks komunikasi khusus penyandang disabilitas. Ajukan pertanyaan tentang kondisi, solusi, hak, dan dukungan yang tersedia.",
-    tag: "Semua Disabilitas",
-    color: "#0891B2",
-    href: "/dashboard",
-    highlight: false,
-  },
-  {
-    Icon: Brain,
-    title: "Panduan Kesehatan & Hak Disabilitas",
-    desc: "Informasi terverifikasi tentang hak penyandang disabilitas, layanan pemerintah, kondisi medis, dan cara mendapatkan dukungan yang tepat â€” dibacakan oleh AI.",
-    tag: "Semua Disabilitas",
+    Icon: HeartHandshake,
+    title: "Panduan Hak Disabilitas",
+    desc: "Informasi resmi UU No. 8/2016, aksesibilitas fasilitas publik, beasiswa pendidikan inklusif, dan kontak layanan darurat nasional yang siap dibacakan oleh suara AI.",
+    tag: "Advokasi & Hak",
     color: "#BE185D",
-    href: "/dashboard",
+    href: "/dashboard/hak-disabilitas",
+    highlight: false,
+  },
+  {
+    Icon: HelpCircle,
+    title: "Pusat Panduan & Aksesibilitas",
+    desc: "Panduan cara memakai setiap fitur, tips pencahayaan kamera, penyesuaian ukuran teks besar, dan bantuan langsung bebas biaya.",
+    tag: "Bantuan & Dukungan",
+    color: "#0891B2",
+    href: "/dashboard/panduan",
     highlight: false,
   },
 ];
 
 const DISABILITY_STATS = [
-  { number: "30 Juta+", label: "Penyandang Disabilitas di Indonesia", icon: "ðŸ‡®ðŸ‡©" },
-  { number: "95%", label: "Kesulitan Mengakses Layanan Digital", icon: "ðŸ“±" },
-  { number: "3 Detik", label: "Respons AI untuk Terjemahan Isyarat", icon: "âš¡" },
-  { number: "24/7", label: "Tersedia Tanpa Biaya Apapun", icon: "ðŸ’š" },
+  { number: "30 Juta+", label: "Penyandang Disabilitas di Indonesia", Icon: Globe2, color: "text-violet-600", bg: "bg-violet-100" },
+  { number: "95%", label: "Kesulitan Mengakses Aplikasi Digital", Icon: Smartphone, color: "text-blue-600", bg: "bg-blue-100" },
+  { number: "Instan", label: "Terjemahan Isyarat ke Suara AI", Icon: Zap, color: "text-amber-600", bg: "bg-amber-100" },
+  { number: "100% Gratis", label: "Tanpa Akun & Langsung Digunakan", Icon: Heart, color: "text-emerald-600", bg: "bg-emerald-100" },
 ];
 
 export default function LandingClient() {
   return (
-    <div className="min-h-dvh bg-bg flex flex-col font-sans overflow-x-hidden">
-      {/* â”€â”€ Navigation â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+    <div className="min-h-dvh bg-[#F8F9FD] flex flex-col font-sans overflow-x-hidden text-[#1E1B4B]">
+      
+      {/* ── Navigation (Clean, No Theme Toggle) ───────────────────────── */}
       <motion.nav
-        initial={{ opacity: 0, y: -20 }}
+        initial={{ opacity: 0, y: -16 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.45, ease }}
-        className="flex items-center justify-between px-6 md:px-10 py-4 fixed top-0 left-0 right-0 z-[100] bg-surface/90 backdrop-blur-[12px] border-b border-border"
+        transition={{ duration: 0.4, ease }}
+        className="flex items-center justify-between px-6 md:px-12 py-3.5 fixed top-0 left-0 right-0 z-[100] bg-white/90 backdrop-blur-md border-b border-[#E2E8F0] shadow-sm"
       >
         <div className="flex items-center gap-3">
-          <ThemeLogo height={26} />
-          <span className="hidden sm:inline text-xs font-semibold px-2.5 py-1 rounded-full bg-violet-100 text-violet-700   border border-violet-200 
-            Platform Inklusif AI
+          <ThemeLogo height={28} />
+          <span className="hidden sm:inline-flex items-center gap-1.5 text-xs font-bold px-3 py-1 rounded-full bg-violet-50 text-violet-700 border border-violet-200">
+            <Accessibility size={13} /> Platform Inklusif AI Disabilitas
           </span>
         </div>
+
         <div className="flex items-center gap-3">
-          <ThemeToggle />
-          <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
-            <Link
-              href="/dashboard"
-              className="flex items-center gap-2 px-4 py-2 rounded-xl bg-violet-600 hover:bg-violet-700 text-white text-sm font-semibold shadow-sm transition-colors"
-            >
-              Buka Aplikasi <ArrowRight size={15} strokeWidth={2.5} />
-            </Link>
-          </motion.div>
+          <Link
+            href="/dashboard"
+            className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-violet-600 hover:bg-violet-700 text-white text-sm font-bold shadow-sm transition-all hover:shadow hover:-translate-y-0.5"
+          >
+            Buka Aplikasi <ArrowRight size={15} strokeWidth={2.5} />
+          </Link>
         </div>
       </motion.nav>
 
       <main className="flex-1 flex flex-col items-center pt-[72px]">
-        {/* â”€â”€ Hero â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+        {/* ── Hero ───────────────────────────────────────────────────── */}
         <motion.section
           initial="hidden"
           animate="visible"
-          className="w-full max-w-[960px] mx-auto px-6 pt-20 pb-16 flex flex-col items-center text-center gap-7"
+          className="w-full max-w-[980px] mx-auto px-6 pt-16 md:pt-24 pb-16 flex flex-col items-center text-center gap-6"
         >
+          {/* Badge */}
           <motion.div
             variants={fadeUp}
             custom={0}
-            className="flex items-center gap-2 px-4 py-2 rounded-full bg-violet-50  border border-violet-200  text-violet-700 
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-violet-100/80 border border-violet-200 text-violet-800 text-xs md:text-sm font-semibold"
           >
-            <Accessibility size={16} />
-            <span className="text-sm font-semibold">Teknologi AI untuk Semua, Tanpa Terkecuali</span>
+            <Sparkles size={15} className="text-violet-600" />
+            <span>Teknologi Kecerdasan Buatan Ramah Semua Disabilitas</span>
           </motion.div>
 
+          {/* Heading */}
           <motion.h1
             variants={fadeUp}
             custom={1}
-            className="text-[clamp(2.25rem,5.5vw,4rem)] font-extrabold tracking-[-0.03em] leading-[1.1] text-primary"
+            className="text-[clamp(2.1rem,5vw,3.75rem)] font-extrabold tracking-tight leading-[1.15] text-[#1E1B4B]"
           >
             Ketika Teknologi AI
             <br />
-            <span className="glow-text">Merangkul Semua Orang</span>
+            <span className="text-violet-600">Merangkul Semua Teman Disabilitas</span>
           </motion.h1>
 
+          {/* Subtitle */}
           <motion.p
             variants={fadeUp}
             custom={2}
-            className="max-w-[620px] text-base md:text-lg text-secondary leading-[1.7]"
+            className="max-w-[640px] text-base md:text-lg text-[#475569] leading-relaxed"
           >
-            Platform kecerdasan buatan gratis yang dirancang khusus untuk membantu teman-teman penyandang disabilitas â€” tunawicara, tunarungu, tunanetra, dan disabilitas fisik â€” berkomunikasi, bereksplorasi, dan berdaya secara mandiri.
+            Platform asistif berbasis AI untuk membantu teman-teman tunawicara, tunarungu, tunanetra, dan disabilitas fisik berkomunikasi bebas lewat kamera, suara alami, dan pelacak mata.
           </motion.p>
 
-          <motion.div variants={fadeUp} custom={3} className="flex flex-wrap gap-3 justify-center">
+          {/* CTA Buttons */}
+          <motion.div variants={fadeUp} custom={3} className="flex flex-wrap gap-3.5 justify-center mt-2">
             <Link
               href="/dashboard/sign-to-voice"
-              className="flex items-center gap-2 px-6 py-3.5 rounded-xl bg-violet-600 hover:bg-violet-700 text-white font-bold text-base shadow-sm transition-all hover:shadow-md hover:-translate-y-0.5"
+              className="flex items-center gap-2 px-6 py-3.5 rounded-xl bg-violet-600 hover:bg-violet-700 text-white font-bold text-sm md:text-base shadow-sm hover:shadow transition-all hover:-translate-y-0.5"
             >
               <Hand size={18} /> Coba TanganBicara AI
             </Link>
             <Link
               href="/dashboard/vision-describer"
-              className="flex items-center gap-2 px-6 py-3.5 rounded-xl bg-surface hover:bg-surface-2 text-primary font-bold text-base border border-border hover:border-border-2 shadow-sm transition-all hover:-translate-y-0.5"
+              className="flex items-center gap-2 px-6 py-3.5 rounded-xl bg-white hover:bg-violet-50 text-violet-700 font-bold text-sm md:text-base border border-violet-200 shadow-sm transition-all hover:-translate-y-0.5"
             >
-              <Eye size={18} /> Mata AI â€” Deskriptor Visual
+              <Eye size={18} /> Mata AI — Pemandu Visual
             </Link>
           </motion.div>
 
-          {/* Stats Row */}
+          {/* Stats Cards (Icons instead of emoji) */}
           <motion.div
             variants={fadeUp}
             custom={4}
-            className="w-full grid grid-cols-2 md:grid-cols-4 gap-4 mt-4"
+            className="w-full grid grid-cols-2 md:grid-cols-4 gap-4 mt-6"
           >
             {DISABILITY_STATS.map((s) => (
               <div
                 key={s.label}
-                className="p-4 rounded-2xl bg-surface border border-border shadow-sm text-center"
+                className="p-5 rounded-2xl bg-white border border-[#E2E8F0] shadow-sm flex flex-col items-center text-center gap-2 hover:border-violet-200 transition-colors"
               >
-                <span className="text-2xl block mb-1">{s.icon}</span>
-                <span className="text-xl md:text-2xl font-extrabold text-primary block">{s.number}</span>
-                <span className="text-xs text-muted mt-0.5 block leading-[1.4]">{s.label}</span>
+                <div className={`w-10 h-10 rounded-xl ${s.bg} flex items-center justify-center ${s.color}`}>
+                  <s.Icon size={20} strokeWidth={2} />
+                </div>
+                <span className="text-xl md:text-2xl font-extrabold text-[#1E1B4B]">{s.number}</span>
+                <span className="text-xs text-[#64748B] leading-snug">{s.label}</span>
               </div>
             ))}
           </motion.div>
         </motion.section>
 
-        {/* â”€â”€ Features Grid â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+        {/* ── Features Grid ───────────────────────────────────────────── */}
         <motion.section
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.1 }}
-          className="w-full max-w-[1100px] mx-auto px-6 pb-20"
+          className="w-full max-w-[1100px] mx-auto px-6 py-12"
         >
-          <motion.div variants={fadeUp} custom={0} className="text-center mb-14">
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-muted block mb-3">Solusi Inovatif AI</span>
-            <h2 className="text-[clamp(1.75rem,3.5vw,2.5rem)] font-extrabold text-primary tracking-tight leading-[1.15]">
-              Satu Platform, Semua Kebutuhan Disabilitas
+          <motion.div variants={fadeUp} custom={0} className="text-center mb-12">
+            <span className="text-xs font-bold uppercase tracking-widest text-violet-600 block mb-2">Solusi Inklusif</span>
+            <h2 className="text-[clamp(1.75rem,3.2vw,2.4rem)] font-extrabold text-[#1E1B4B] tracking-tight">
+              Fitur AI untuk Kebutuhan Sehari-hari
             </h2>
-            <p className="text-secondary text-base mt-3 max-w-xl mx-auto">
-              Didukung kecerdasan buatan terdepan, setiap fitur dirancang dengan memahami tantangan nyata penyandang disabilitas.
+            <p className="text-[#475569] text-sm md:text-base mt-2 max-w-xl mx-auto">
+              Setiap inovasi dibuat untuk memberikan kemandirian penuh tanpa rasa terasing.
             </p>
           </motion.div>
 
@@ -217,156 +224,149 @@ export default function LandingClient() {
                 key={title}
                 variants={fadeUp}
                 custom={i + 1}
-                className={`group relative flex flex-col p-7 rounded-[1.75rem] border transition-all duration-300 hover:-translate-y-1 hover:shadow-lg ${
+                className={`flex flex-col p-6 rounded-2xl border transition-all duration-200 hover:-translate-y-1 hover:shadow-md ${
                   highlight
-                    ? "bg-violet-600 border-violet-600 text-white"
-                    : "bg-surface border-border hover:border-border-2"
+                    ? "bg-violet-600 text-white border-violet-600 shadow-sm"
+                    : "bg-white text-[#1E1B4B] border-[#E2E8F0] hover:border-violet-300"
                 }`}
               >
-                {/* Background Glow */}
-                {!highlight && (
+                <div className="flex items-start justify-between mb-5">
                   <div
-                    className="absolute top-0 right-0 w-28 h-28 opacity-0 group-hover:opacity-[0.08] transition-opacity duration-500 blur-2xl rounded-full pointer-events-none"
-                    style={{ background: color, transform: "translate(30%, -30%)" }}
-                  />
-                )}
-
-                <div className="flex items-start justify-between mb-6">
-                  <div
-                    className="w-12 h-12 rounded-2xl flex items-center justify-center transition-transform duration-500 group-hover:-translate-y-0.5"
-                    style={
-                      highlight
-                        ? { background: "rgba(255,255,255,0.2)", color: "#fff" }
-                        : { background: `${color}15`, color }
-                    }
+                    className="w-12 h-12 rounded-xl flex items-center justify-center"
+                    style={{
+                      background: highlight ? "rgba(255,255,255,0.2)" : `${color}15`,
+                      color: highlight ? "#fff" : color,
+                    }}
                   >
-                    <Icon size={22} strokeWidth={1.5} />
+                    <Icon size={22} strokeWidth={2} />
                   </div>
                   <span
-                    className="text-[0.6875rem] font-bold uppercase tracking-[0.08em] px-2.5 py-1 rounded-full border"
-                    style={
-                      highlight
-                        ? { background: "rgba(255,255,255,0.15)", color: "rgba(255,255,255,0.9)", borderColor: "rgba(255,255,255,0.2)" }
-                        : { background: `${color}10`, color: color, borderColor: `${color}25` }
-                    }
+                    className="text-[0.6875rem] font-bold px-2.5 py-1 rounded-full border"
+                    style={{
+                      background: highlight ? "rgba(255,255,255,0.2)" : `${color}10`,
+                      color: highlight ? "#fff" : color,
+                      borderColor: highlight ? "rgba(255,255,255,0.3)" : `${color}25`,
+                    }}
                   >
                     {tag}
                   </span>
                 </div>
 
-                <h3 className={`text-lg font-bold mb-3 ${highlight ? "text-white" : "text-primary"}`}>
+                <h3 className={`text-base md:text-lg font-bold mb-2 ${highlight ? "text-white" : "text-[#1E1B4B]"}`}>
                   {title}
                 </h3>
-                <p className={`text-sm leading-[1.65] flex-1 ${highlight ? "text-white/80" : "text-secondary"}`}>
+                <p className={`text-xs md:text-sm leading-relaxed flex-1 ${highlight ? "text-white/85" : "text-[#475569]"}`}>
                   {desc}
                 </p>
 
                 <Link
                   href={href}
-                  className={`mt-6 pt-4 border-t flex items-center justify-between text-sm font-semibold transition-colors ${
+                  className={`mt-5 pt-3.5 border-t flex items-center justify-between text-xs font-bold transition-colors ${
                     highlight
-                      ? "border-white/20 text-white/80 hover:text-white"
-                      : "border-border text-secondary hover:text-primary"
+                      ? "border-white/20 text-white hover:text-white/90"
+                      : "border-[#E2E8F0] text-violet-700 hover:text-violet-900"
                   }`}
                 >
                   <span>Buka Fitur</span>
-                  <div
-                    className={`w-7 h-7 rounded-full flex items-center justify-center transition-colors ${
-                      highlight
-                        ? "bg-white/20 hover:bg-white/30"
-                        : "bg-surface-2 border border-border group-hover:bg-primary group-hover:border-primary group-hover:text-bg"
-                    }`}
-                  >
-                    <ArrowRight size={13} strokeWidth={2.5} />
-                  </div>
+                  <ArrowRight size={14} strokeWidth={2.5} />
                 </Link>
               </motion.div>
             ))}
           </div>
         </motion.section>
 
-        {/* â”€â”€ How It Works â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+        {/* ── How It Works (Icons instead of emoji) ───────────────────── */}
         <motion.section
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.15 }}
-          className="w-full bg-surface border-y border-border py-20"
+          className="w-full bg-white border-y border-[#E2E8F0] py-16"
         >
           <div className="max-w-[960px] mx-auto px-6">
-            <motion.div variants={fadeUp} custom={0} className="text-center mb-12">
-              <span className="text-xs font-bold uppercase tracking-[0.2em] text-muted block mb-3">Cara Kerja</span>
-              <h2 className="text-[clamp(1.5rem,3vw,2.25rem)] font-extrabold text-primary">
-                TanganBicara AI: Bagaimana Cara Kerjanya?
+            <motion.div variants={fadeUp} custom={0} className="text-center mb-10">
+              <span className="text-xs font-bold uppercase tracking-widest text-violet-600 block mb-2">Alur Interaksi</span>
+              <h2 className="text-[clamp(1.5rem,3vw,2.2rem)] font-extrabold text-[#1E1B4B]">
+                Bagaimana TanganBicara AI Bekerja?
               </h2>
             </motion.div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {[
-                { step: "01", icon: "âœ‹", title: "Tunjukkan Isyarat", desc: "Aktifkan kamera atau sentuh tombol isyarat dari kamus BISINDO yang tersedia. Pilih dari kata sambutan, kebutuhan dasar, respons, hingga kode darurat." },
-                { step: "02", icon: "ðŸ¤–", title: "AI Proses & Terjemahkan", desc: "Sistem AI mengidentifikasi gestur tangan dan mengubahnya menjadi kalimat alami berbahasa Indonesia yang bermakna, bukan sekadar kata tunggal." },
-                { step: "03", icon: "ðŸ”Š", title: "Suara AI Berbicara", desc: "Kalimat hasil terjemahan diucapkan dengan lantang oleh AI menggunakan teknologi text-to-speech bahasa Indonesia, sehingga lawan bicara dapat mendengar dengan jelas." },
+                {
+                  step: "01",
+                  Icon: Camera,
+                  title: "Peragakan Isyarat Tangan",
+                  desc: "Arahkan tangan ke kamera atau pilih isyarat dari katalog BISINDO (bahasa isyarat asli dan kebutuhan harian).",
+                },
+                {
+                  step: "02",
+                  Icon: Bot,
+                  title: "AI Memahami Makna",
+                  desc: "AI mengonversi pose tangan menjadi kalimat bahasa Indonesia yang ramah, sopan, dan jelas maknanya.",
+                },
+                {
+                  step: "03",
+                  Icon: Volume2,
+                  title: "Suara AI Berbicara",
+                  desc: "AI membacakan suara secara lantang sehingga lawan bicara yang bisa mendengar langsung paham.",
+                },
               ].map((item, i) => (
                 <motion.div
                   key={item.step}
                   variants={fadeUp}
                   custom={i + 1}
-                  className="p-6 rounded-2xl bg-bg border border-border flex flex-col gap-4"
+                  className="p-6 rounded-2xl bg-[#F8F9FD] border border-[#E2E8F0] flex flex-col gap-3"
                 >
-                  <div className="flex items-center gap-3">
-                    <span className="text-3xl">{item.icon}</span>
-                    <span className="text-[0.6875rem] font-black text-muted tracking-widest">LANGKAH {item.step}</span>
+                  <div className="flex items-center justify-between">
+                    <div className="w-10 h-10 rounded-xl bg-violet-100 flex items-center justify-center text-violet-700">
+                      <item.Icon size={20} strokeWidth={2} />
+                    </div>
+                    <span className="text-xs font-extrabold text-[#94A3B8] tracking-wider">LANGKAH {item.step}</span>
                   </div>
-                  <h4 className="font-bold text-primary text-base">{item.title}</h4>
-                  <p className="text-secondary text-sm leading-[1.65]">{item.desc}</p>
+                  <h4 className="font-bold text-[#1E1B4B] text-base">{item.title}</h4>
+                  <p className="text-[#475569] text-xs leading-relaxed">{item.desc}</p>
                 </motion.div>
               ))}
             </div>
           </div>
         </motion.section>
 
-        {/* â”€â”€ CTA Final â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+        {/* ── Friendly CTA ────────────────────────────────────────────── */}
         <motion.section
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="w-full max-w-[720px] mx-auto px-6 py-24 text-center"
+          className="w-full max-w-[700px] mx-auto px-6 py-20 text-center"
         >
-          <motion.div variants={fadeUp} custom={0} className="text-5xl mb-6">
-            ðŸ’œ
-          </motion.div>
-          <motion.h2
-            variants={fadeUp}
-            custom={1}
-            className="text-[clamp(1.75rem,3.5vw,2.75rem)] font-extrabold text-primary leading-[1.15] mb-4"
+          <div className="w-14 h-14 rounded-2xl bg-violet-100 text-violet-700 mx-auto flex items-center justify-center mb-5">
+            <HeartHandshake size={28} />
+          </div>
+          <h2 className="text-[clamp(1.75rem,3.2vw,2.5rem)] font-extrabold text-[#1E1B4B] leading-tight mb-3">
+            Komunikasi adalah Hak Setiap Insan
+          </h2>
+          <p className="text-[#475569] text-sm md:text-base mb-6 leading-relaxed">
+            Tidak ada biaya, tidak perlu registrasi. Langsung gunakan semua fitur asistif AI untuk membantu keseharian teman disabilitas.
+          </p>
+          <Link
+            href="/dashboard"
+            className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-violet-600 hover:bg-violet-700 text-white font-bold text-base shadow-sm transition-all hover:-translate-y-0.5"
           >
-            Semua orang berhak berkomunikasi dan berekspresi secara bebas.
-          </motion.h2>
-          <motion.p variants={fadeUp} custom={2} className="text-secondary text-base md:text-lg mb-8">
-            Platform ini gratis, terus berkembang, dan dibangun dengan kepedulian nyata terhadap teman-teman disabilitas di Indonesia.
-          </motion.p>
-          <motion.div variants={fadeUp} custom={3} className="flex flex-wrap gap-3 justify-center">
-            <Link
-              href="/dashboard"
-              className="flex items-center gap-2 px-7 py-4 rounded-xl bg-violet-600 hover:bg-violet-700 text-white font-bold text-base shadow-sm transition-all hover:-translate-y-0.5"
-            >
-              <Sparkles size={18} /> Mulai Gunakan Sekarang â€” Gratis
-            </Link>
-          </motion.div>
+            <Sparkles size={18} /> Buka Dashboard Aksesibilitas
+          </Link>
         </motion.section>
       </main>
 
-      {/* â”€â”€ Footer â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
-      <footer className="py-6 px-10 flex justify-between items-center flex-wrap gap-4 bg-surface border-t border-border">
+      {/* ── Footer ──────────────────────────────────────────────────── */}
+      <footer className="py-6 px-8 md:px-12 flex justify-between items-center flex-wrap gap-4 bg-white border-t border-[#E2E8F0] text-xs text-[#64748B]">
         <div className="flex items-center gap-3">
-          <ThemeLogo height={16} />
-          <span className="text-[0.8125rem] text-muted">Â© 2026 Platform Inklusif AI â€” Untuk Semua.</span>
+          <ThemeLogo height={20} />
+          <span>© 2026 POLANITAS — Platform Inklusif AI untuk Teman Disabilitas.</span>
         </div>
-        <div className="flex items-center gap-2 text-muted text-xs">
-          <HeartHandshake size={14} className="text-violet-500" />
-          <span>Dibuat dengan kepedulian untuk teman disabilitas Indonesia</span>
+        <div className="flex items-center gap-1.5 text-violet-700 font-medium">
+          <HeartHandshake size={14} />
+          <span>Inovasi Aksesibilitas Indonesia</span>
         </div>
       </footer>
     </div>
   );
 }
-

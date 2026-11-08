@@ -100,10 +100,29 @@ export default function VisionDescriberPage() {
   const startCamera = async () => {
     setCameraError(null);
     try {
-      const stream = await navigator.mediaDevices.getUserMedia({
-        video: { facingMode: "environment", width: { ideal: 1280 }, height: { ideal: 720 } },
-        audio: false,
-      });
+      let stream: MediaStream;
+      try {
+        // Try environment camera (mobile back camera) first
+        stream = await navigator.mediaDevices.getUserMedia({
+          video: { facingMode: "environment", width: { ideal: 1280 }, height: { ideal: 720 } },
+          audio: false,
+        });
+      } catch {
+        try {
+          // Fallback to user/front camera (laptop/webcam)
+          stream = await navigator.mediaDevices.getUserMedia({
+            video: { facingMode: "user", width: { ideal: 1280 }, height: { ideal: 720 } },
+            audio: false,
+          });
+        } catch {
+          // Generic fallback
+          stream = await navigator.mediaDevices.getUserMedia({
+            video: true,
+            audio: false,
+          });
+        }
+      }
+
       streamRef.current = stream;
       if (videoRef.current) {
         videoRef.current.srcObject = stream;
@@ -113,11 +132,22 @@ export default function VisionDescriberPage() {
       }
       setCameraActive(true);
       speakIndonesian("Kamera aktif. Silakan arahkan kamera dan pilih tombol pindai.");
-    } catch {
-      setCameraError("Tidak dapat mengakses kamera. Periksa izin kamera pada browser.");
+    } catch (err: any) {
+      console.error("Camera error:", err);
+      setCameraError("Kamera belum dapat dibuka. Pastikan izin kamera telah diizinkan pada browser Anda.");
       speakIndonesian("Kamera gagal diaktifkan. Periksa izin kamera pada perangkat Anda.");
     }
   };
+
+  // Keep stream bound to video ref
+  useEffect(() => {
+    if (cameraActive && streamRef.current && videoRef.current) {
+      if (videoRef.current.srcObject !== streamRef.current) {
+        videoRef.current.srcObject = streamRef.current;
+      }
+      videoRef.current.play().catch(() => {});
+    }
+  }, [cameraActive]);
 
   const stopCamera = useCallback(() => {
     streamRef.current?.getTracks().forEach((t) => t.stop());
