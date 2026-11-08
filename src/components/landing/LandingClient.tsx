@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -45,7 +45,7 @@ const FEATURES = [
   },
   {
     Icon: Eye,
-    title: "Mata AI — Deskriptor Visual",
+    title: "Mata AI â€” Deskriptor Visual",
     desc: "Arahkan kamera ke lingkungan sekitar, teks dokumen, uang kertas, atau rintangan jalan. AI akan membacakan keterangannya dengan lantang secara otomatis.",
     tag: "Tunanetra & Low Vision",
     color: "#2563EB",
@@ -64,7 +64,7 @@ const FEATURES = [
   {
     Icon: ScanLine,
     title: "Pelacak Tatapan Mata (Eye Tracking)",
-    desc: "Navigasi cursor dan klik elemen secara otomatis menggunakan gerakan mata (Dwell Click) atau kedipan mata (Blink Click) — tanpa mouse, tanpa keyboard.",
+    desc: "Navigasi cursor dan klik elemen secara otomatis menggunakan gerakan mata (Dwell Click) atau kedipan mata (Blink Click) â€” tanpa mouse, tanpa keyboard.",
     tag: "Disabilitas Fisik & Tangan",
     color: "#D97706",
     href: "/dashboard",
@@ -82,7 +82,7 @@ const FEATURES = [
   {
     Icon: Brain,
     title: "Panduan Kesehatan & Hak Disabilitas",
-    desc: "Informasi terverifikasi tentang hak penyandang disabilitas, layanan pemerintah, kondisi medis, dan cara mendapatkan dukungan yang tepat — dibacakan oleh AI.",
+    desc: "Informasi terverifikasi tentang hak penyandang disabilitas, layanan pemerintah, kondisi medis, dan cara mendapatkan dukungan yang tepat â€” dibacakan oleh AI.",
     tag: "Semua Disabilitas",
     color: "#BE185D",
     href: "/dashboard",
@@ -91,16 +91,16 @@ const FEATURES = [
 ];
 
 const DISABILITY_STATS = [
-  { number: "30 Juta+", label: "Penyandang Disabilitas di Indonesia", icon: "🇮🇩" },
-  { number: "95%", label: "Kesulitan Mengakses Layanan Digital", icon: "📱" },
-  { number: "3 Detik", label: "Respons AI untuk Terjemahan Isyarat", icon: "⚡" },
-  { number: "24/7", label: "Tersedia Tanpa Biaya Apapun", icon: "💚" },
+  { number: "30 Juta+", label: "Penyandang Disabilitas di Indonesia", icon: "ðŸ‡®ðŸ‡©" },
+  { number: "95%", label: "Kesulitan Mengakses Layanan Digital", icon: "ðŸ“±" },
+  { number: "3 Detik", label: "Respons AI untuk Terjemahan Isyarat", icon: "âš¡" },
+  { number: "24/7", label: "Tersedia Tanpa Biaya Apapun", icon: "ðŸ’š" },
 ];
 
 export default function LandingClient() {
   return (
     <div className="min-h-dvh bg-bg flex flex-col font-sans overflow-x-hidden">
-      {/* ── Navigation ─────────────────────────────────────────────── */}
+      {/* â”€â”€ Navigation â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <motion.nav
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -109,7 +109,7 @@ export default function LandingClient() {
       >
         <div className="flex items-center gap-3">
           <ThemeLogo height={26} />
-          <span className="hidden sm:inline text-xs font-semibold px-2.5 py-1 rounded-full bg-violet-100 text-violet-700 dark:bg-violet-950/60 dark:text-violet-300 border border-violet-200 dark:border-violet-800">
+          <span className="hidden sm:inline text-xs font-semibold px-2.5 py-1 rounded-full bg-violet-100 text-violet-700   border border-violet-200 
             Platform Inklusif AI
           </span>
         </div>
@@ -127,7 +127,7 @@ export default function LandingClient() {
       </motion.nav>
 
       <main className="flex-1 flex flex-col items-center pt-[72px]">
-        {/* ── Hero ───────────────────────────────────────────────────── */}
+        {/* â”€â”€ Hero â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
         <motion.section
           initial="hidden"
           animate="visible"
@@ -136,7 +136,7 @@ export default function LandingClient() {
           <motion.div
             variants={fadeUp}
             custom={0}
-            className="flex items-center gap-2 px-4 py-2 rounded-full bg-violet-50 dark:bg-violet-950/40 border border-violet-200 dark:border-violet-800 text-violet-700 dark:text-violet-300"
+            className="flex items-center gap-2 px-4 py-2 rounded-full bg-violet-50  border border-violet-200  text-violet-700 
           >
             <Accessibility size={16} />
             <span className="text-sm font-semibold">Teknologi AI untuk Semua, Tanpa Terkecuali</span>
@@ -157,7 +157,7 @@ export default function LandingClient() {
             custom={2}
             className="max-w-[620px] text-base md:text-lg text-secondary leading-[1.7]"
           >
-            Platform kecerdasan buatan gratis yang dirancang khusus untuk membantu teman-teman penyandang disabilitas — tunawicara, tunarungu, tunanetra, dan disabilitas fisik — berkomunikasi, bereksplorasi, dan berdaya secara mandiri.
+            Platform kecerdasan buatan gratis yang dirancang khusus untuk membantu teman-teman penyandang disabilitas â€” tunawicara, tunarungu, tunanetra, dan disabilitas fisik â€” berkomunikasi, bereksplorasi, dan berdaya secara mandiri.
           </motion.p>
 
           <motion.div variants={fadeUp} custom={3} className="flex flex-wrap gap-3 justify-center">
@@ -171,7 +171,7 @@ export default function LandingClient() {
               href="/dashboard/vision-describer"
               className="flex items-center gap-2 px-6 py-3.5 rounded-xl bg-surface hover:bg-surface-2 text-primary font-bold text-base border border-border hover:border-border-2 shadow-sm transition-all hover:-translate-y-0.5"
             >
-              <Eye size={18} /> Mata AI — Deskriptor Visual
+              <Eye size={18} /> Mata AI â€” Deskriptor Visual
             </Link>
           </motion.div>
 
@@ -194,7 +194,7 @@ export default function LandingClient() {
           </motion.div>
         </motion.section>
 
-        {/* ── Features Grid ───────────────────────────────────────────── */}
+        {/* â”€â”€ Features Grid â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
         <motion.section
           initial="hidden"
           whileInView="visible"
@@ -285,7 +285,7 @@ export default function LandingClient() {
           </div>
         </motion.section>
 
-        {/* ── How It Works ────────────────────────────────────────────── */}
+        {/* â”€â”€ How It Works â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
         <motion.section
           initial="hidden"
           whileInView="visible"
@@ -302,9 +302,9 @@ export default function LandingClient() {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {[
-                { step: "01", icon: "✋", title: "Tunjukkan Isyarat", desc: "Aktifkan kamera atau sentuh tombol isyarat dari kamus BISINDO yang tersedia. Pilih dari kata sambutan, kebutuhan dasar, respons, hingga kode darurat." },
-                { step: "02", icon: "🤖", title: "AI Proses & Terjemahkan", desc: "Sistem AI mengidentifikasi gestur tangan dan mengubahnya menjadi kalimat alami berbahasa Indonesia yang bermakna, bukan sekadar kata tunggal." },
-                { step: "03", icon: "🔊", title: "Suara AI Berbicara", desc: "Kalimat hasil terjemahan diucapkan dengan lantang oleh AI menggunakan teknologi text-to-speech bahasa Indonesia, sehingga lawan bicara dapat mendengar dengan jelas." },
+                { step: "01", icon: "âœ‹", title: "Tunjukkan Isyarat", desc: "Aktifkan kamera atau sentuh tombol isyarat dari kamus BISINDO yang tersedia. Pilih dari kata sambutan, kebutuhan dasar, respons, hingga kode darurat." },
+                { step: "02", icon: "ðŸ¤–", title: "AI Proses & Terjemahkan", desc: "Sistem AI mengidentifikasi gestur tangan dan mengubahnya menjadi kalimat alami berbahasa Indonesia yang bermakna, bukan sekadar kata tunggal." },
+                { step: "03", icon: "ðŸ”Š", title: "Suara AI Berbicara", desc: "Kalimat hasil terjemahan diucapkan dengan lantang oleh AI menggunakan teknologi text-to-speech bahasa Indonesia, sehingga lawan bicara dapat mendengar dengan jelas." },
               ].map((item, i) => (
                 <motion.div
                   key={item.step}
@@ -324,7 +324,7 @@ export default function LandingClient() {
           </div>
         </motion.section>
 
-        {/* ── CTA Final ───────────────────────────────────────────────── */}
+        {/* â”€â”€ CTA Final â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
         <motion.section
           initial="hidden"
           whileInView="visible"
@@ -332,7 +332,7 @@ export default function LandingClient() {
           className="w-full max-w-[720px] mx-auto px-6 py-24 text-center"
         >
           <motion.div variants={fadeUp} custom={0} className="text-5xl mb-6">
-            💜
+            ðŸ’œ
           </motion.div>
           <motion.h2
             variants={fadeUp}
@@ -349,17 +349,17 @@ export default function LandingClient() {
               href="/dashboard"
               className="flex items-center gap-2 px-7 py-4 rounded-xl bg-violet-600 hover:bg-violet-700 text-white font-bold text-base shadow-sm transition-all hover:-translate-y-0.5"
             >
-              <Sparkles size={18} /> Mulai Gunakan Sekarang — Gratis
+              <Sparkles size={18} /> Mulai Gunakan Sekarang â€” Gratis
             </Link>
           </motion.div>
         </motion.section>
       </main>
 
-      {/* ── Footer ──────────────────────────────────────────────────── */}
+      {/* â”€â”€ Footer â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <footer className="py-6 px-10 flex justify-between items-center flex-wrap gap-4 bg-surface border-t border-border">
         <div className="flex items-center gap-3">
           <ThemeLogo height={16} />
-          <span className="text-[0.8125rem] text-muted">© 2026 Platform Inklusif AI — Untuk Semua.</span>
+          <span className="text-[0.8125rem] text-muted">Â© 2026 Platform Inklusif AI â€” Untuk Semua.</span>
         </div>
         <div className="flex items-center gap-2 text-muted text-xs">
           <HeartHandshake size={14} className="text-violet-500" />
@@ -369,3 +369,4 @@ export default function LandingClient() {
     </div>
   );
 }
+

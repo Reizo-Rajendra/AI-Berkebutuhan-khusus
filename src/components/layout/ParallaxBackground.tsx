@@ -1,21 +1,21 @@
-"use client";
+﻿"use client";
 
 import { Eye, Activity } from "lucide-react";
 
 export function ParallaxBackground() {
   return (
     <div className="fixed inset-0 w-full h-full pointer-events-none z-0 overflow-hidden select-none">
-      {/* ── Background Grid (Denser and static) ────────────────── */}
+      {/* â”€â”€ Background Grid (Denser and static) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <div 
-        className="absolute w-[200vw] h-[200vh] bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] dark:bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:40px_40px] left-[-50vw] top-[-50vh]"
+        className="absolute w-[200vw] h-[200vh] bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)]  bg-[size:40px_40px] left-[-50vw] top-[-50vh]"
       />
 
-      {/* ── Subtle Ambient Glows ──────────────── */}
-      <div className="absolute top-[20%] left-[-10%] w-[50%] h-[50%] bg-[var(--color-accent-glow)] blur-[60px] opacity-10 dark:opacity-[0.03]" />
-      <div className="absolute bottom-[20%] right-[-10%] w-[50%] h-[50%] bg-[var(--color-accent-glow)] blur-[60px] opacity-10 dark:opacity-[0.03]" />
+      {/* â”€â”€ Subtle Ambient Glows â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+      <div className="absolute top-[20%] left-[-10%] w-[50%] h-[50%] bg-[var(--color-accent-glow)] blur-[60px] opacity-10  />
+      <div className="absolute bottom-[20%] right-[-10%] w-[50%] h-[50%] bg-[var(--color-accent-glow)] blur-[60px] opacity-10  />
 
-      {/* ── Technical Icons (Integrated into corners) ──────────── */}
-      <div className="absolute inset-0 overflow-hidden opacity-[0.08] dark:opacity-[0.04]">
+      {/* â”€â”€ Technical Icons (Integrated into corners) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+      <div className="absolute inset-0 overflow-hidden opacity-[0.08] 
          {/* Center Left Subtle */}
          <div className="absolute top-[45%] left-[-2%] hidden lg:block">
            <Eye size={100} strokeWidth={0.5} className="text-accent-text opacity-40 rotate-6" />
@@ -27,9 +27,9 @@ export function ParallaxBackground() {
          </div>
       </div>
 
-      {/* ── Analytical Chart Line (Grounding element) ─────────── */}
+      {/* â”€â”€ Analytical Chart Line (Grounding element) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <svg
-        className="absolute top-[15%] md:top-[12%] left-1/2 -translate-x-1/2 w-[240%] sm:w-[180%] md:w-[140%] min-w-[1200px] h-auto stroke-[var(--color-accent-text)] opacity-[0.20] dark:opacity-[0.10]"
+        className="absolute top-[15%] md:top-[12%] left-1/2 -translate-x-1/2 w-[240%] sm:w-[180%] md:w-[140%] min-w-[1200px] h-auto stroke-[var(--color-accent-text)] opacity-[0.20] 
         viewBox="0 0 1000 300"
         fill="none"
       >
@@ -43,8 +43,9 @@ export function ParallaxBackground() {
         </defs>
       </svg>
 
-      {/* ── Soft Center Glow (Behind the Form) ────────────────── */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[80vh] bg-[radial-gradient(circle_at_center,var(--color-accent-text)_0%,transparent_70%)] pointer-events-none blur-[80px] opacity-[0.06] dark:opacity-[0.03]" />
+      {/* â”€â”€ Soft Center Glow (Behind the Form) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[80vh] bg-[radial-gradient(circle_at_center,var(--color-accent-text)_0%,transparent_70%)] pointer-events-none blur-[80px] opacity-[0.06]  />
     </div>
   );
 }
+

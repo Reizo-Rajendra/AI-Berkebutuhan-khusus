@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useState, useCallback, useRef, type ReactNode } from "react";
 import { useAuth } from "@/components/auth/AuthProvider";
@@ -14,7 +14,7 @@ import {
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
-// ── Constants ─────────────────────────────────────────────────────────────────
+// â”€â”€ Constants â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const CURSOR_HALF      = 20;   // half of cursor dot width/height (px)
 const SCROLL_ZONE_FRAC = 0.16; // top/bottom 16% of viewport = scroll trigger zone
 const SCROLL_SPEED_PX  = 20;   // max px to scroll per tick
@@ -42,7 +42,7 @@ function findScrollContainer(x: number, y: number): Element {
   return document.documentElement;
 }
 
-// ── CSS injected when tracker is active ──────────────────────────────────────
+// â”€â”€ CSS injected when tracker is active â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const PREVIEW_CSS = `
 #ftPreviewVideo {
   position: fixed !important;
@@ -84,7 +84,7 @@ export function EyeTrackingNavigation() {
     defaultBottom: 96,
   });
 
-  // ── Gaze cursor state ─────────────────────────────────────────────────────
+  // â”€â”€ Gaze cursor state â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   const [cursorPos,  setCursorPos]  = useState({ x: -1, y: -1 });
   const [blinkFlash, setBlinkFlash] = useState(false);
   const cursorRef    = useRef({ x: -1, y: -1 });
@@ -93,15 +93,15 @@ export function EyeTrackingNavigation() {
   const lastBlinkRef = useRef(0);
   const BLINK_COOLDOWN_MS = 1500;
 
-  // ── Voice input ──────────────────────────────────────────────────────────
+  // â”€â”€ Voice input â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   const { isListening, interimText, transcript, error: voiceError, startListening, stopListening } = useVoiceInput();
   const [voiceTarget, setVoiceTarget] = useState<{ label: string; placeholder: string } | null>(null);
 
-  // ── Scroll zone state ─────────────────────────────────────────────────────
+  // â”€â”€ Scroll zone state â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   const [scrollDir,  setScrollDir]  = useState<"up" | "down" | "none">("none");
   const scrollDirRef = useRef<"up" | "down" | "none">("none");
 
-  // ── Feedback toast ────────────────────────────────────────────────────────
+  // â”€â”€ Feedback toast â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   const [feedback,     setFeedback]     = useState<string | null>(null);
   const [feedbackIcon, setFeedbackIcon] = useState<ReactNode>(null);
   const feedbackTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -116,7 +116,7 @@ export function EyeTrackingNavigation() {
     }, 2500);
   }
 
-  // ── Inject / remove preview video CSS ────────────────────────────────────
+  // â”€â”€ Inject / remove preview video CSS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   const styleRef = useRef<HTMLStyleElement | null>(null);
   useEffect(() => {
     if (enabled) {
@@ -136,7 +136,7 @@ export function EyeTrackingNavigation() {
   }, [enabled]);
   useEffect(() => () => { styleRef.current?.remove(); }, []);
 
-  // ── Gaze handler — move cursor + detect scroll zone ───────────────────────
+  // â”€â”€ Gaze handler â€” move cursor + detect scroll zone â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   const handleGaze = useCallback((x: number, y: number) => {
     cursorRef.current = { x, y };
     setCursorPos({ x, y });
@@ -153,12 +153,12 @@ export function EyeTrackingNavigation() {
     }
   }, []);
 
-  // ── Blink handler — click element under cursor ─────────────────────────────
+  // â”€â”€ Blink handler â€” click element under cursor â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   const handleBlink = useCallback(() => {
     const { x, y } = cursorRef.current;
     if (x < 0 || y < 0) return;
 
-    // ── Cooldown: ignore rapid blink bursts ───────────────────────────────
+    // â”€â”€ Cooldown: ignore rapid blink bursts â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     const now = Date.now();
     if (now - lastBlinkRef.current < BLINK_COOLDOWN_MS) return;
     lastBlinkRef.current = now;
@@ -190,7 +190,7 @@ export function EyeTrackingNavigation() {
     const htmlEl = clickable ?? (target instanceof HTMLElement ? target : null);
     if (!htmlEl) return;
 
-    // ── Voice input for text fields ──────────────────────────────────────────
+    // â”€â”€ Voice input for text fields â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     const tag = htmlEl.tagName;
     const type = (htmlEl as HTMLInputElement).type ?? "";
     const isTextInput =
@@ -207,11 +207,11 @@ export function EyeTrackingNavigation() {
         "Kolom teks";
       setVoiceTarget({ label: label.trim(), placeholder: inputEl.placeholder ?? "" });
       startListening(inputEl, { lang: "id-ID", mode: "replace" });
-      showFeedback("Mikrofon Aktif 🎤", <Mic size={14} />);
+      showFeedback("Mikrofon Aktif ðŸŽ¤", <Mic size={14} />);
       return;
     }
 
-    // ── Regular blink-click for non-text elements ────────────────────────────
+    // â”€â”€ Regular blink-click for non-text elements â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     const old = htmlEl.style.outline;
     htmlEl.style.outline = "3px solid var(--color-primary)";
     setTimeout(() => { htmlEl.style.outline = old; }, 300);
@@ -226,7 +226,7 @@ export function EyeTrackingNavigation() {
 
   useEffect(() => { setMounted(true); }, []);
 
-  // ── Start / stop tracking ─────────────────────────────────────────────────
+  // â”€â”€ Start / stop tracking â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   useEffect(() => {
     if (enabled && isReady && !isTracking) {
       startTracking();
@@ -239,7 +239,7 @@ export function EyeTrackingNavigation() {
     }
   }, [enabled, isReady, isTracking, startTracking, stopTracking]);
 
-  // ── Scroll loop — fires every SCROLL_TICK_MS when cursor is in a scroll zone ──
+  // â”€â”€ Scroll loop â€” fires every SCROLL_TICK_MS when cursor is in a scroll zone â”€â”€
   useEffect(() => {
     if (!enabled || !isTracking) {
       scrollDirRef.current = "none";
@@ -254,7 +254,7 @@ export function EyeTrackingNavigation() {
       const { x, y } = cursorRef.current;
       const yRatio   = y / window.innerHeight;
 
-      // Intensity: 0 at zone boundary, 1 at screen edge — faster toward edge
+      // Intensity: 0 at zone boundary, 1 at screen edge â€” faster toward edge
       const intensity =
         dir === "up"
           ? Math.max(0, (SCROLL_ZONE_FRAC - yRatio) / SCROLL_ZONE_FRAC)
@@ -266,7 +266,7 @@ export function EyeTrackingNavigation() {
       const delta = dir === "up" ? -amount : amount;
       console.log(`[Scroll] dir=${dir} y=${Math.round(y)} ratio=${yRatio.toFixed(2)} intensity=${intensity.toFixed(2)} delta=${delta}`);
 
-      // Primary: window.scrollBy — works in most browser/Next.js configs
+      // Primary: window.scrollBy â€” works in most browser/Next.js configs
       window.scrollBy(0, delta);
 
       // Secondary: walk DOM to find the actual scrollable container
@@ -299,10 +299,10 @@ export function EyeTrackingNavigation() {
     ? isFaceDetected ? "Wajah Terdeteksi" : "Mencari Wajah..."
     : "Tracker Nonaktif";
 
-  // ── Render ────────────────────────────────────────────────────────────────
+  // â”€â”€ Render â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   return (
     <>
-      {/* ── Voice Listening Overlay ──────────────────────────────────────────── */}
+      {/* â”€â”€ Voice Listening Overlay â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       {isListening && voiceTarget && (
         <div
           style={{
@@ -380,7 +380,7 @@ export function EyeTrackingNavigation() {
             lineHeight: 1.5,
             transition: "color 0.2s",
           }}>
-            {interimText || transcript || "Mulai berbicara…"}
+            {interimText || transcript || "Mulai berbicaraâ€¦"}
           </div>
 
           {/* Hint */}
@@ -426,7 +426,7 @@ export function EyeTrackingNavigation() {
           <MicOff size={14} /> {voiceError}
         </div>
       )}
-      {/* ── Scroll zone overlays — appear at screen edges ──────────────────── */}
+      {/* â”€â”€ Scroll zone overlays â€” appear at screen edges â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <AnimatePresence>
         {showCursor && scrollDir === "up" && (
           <motion.div
@@ -481,7 +481,7 @@ export function EyeTrackingNavigation() {
         )}
       </AnimatePresence>
 
-      {/* ── Gaze Cursor ──────────────────────────────────────────────────────── */}
+      {/* â”€â”€ Gaze Cursor â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       {showCursor && (
         <div
           className="fixed z-[10001] pointer-events-none top-0 left-0"
@@ -538,7 +538,7 @@ export function EyeTrackingNavigation() {
         </div>
       )}
 
-      {/* ── Auto-calibration overlay ──────────────────────────────────────────── */}
+      {/* â”€â”€ Auto-calibration overlay â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <AnimatePresence>
         {isCalibrating && isTracking && (
           <motion.div
@@ -562,7 +562,7 @@ export function EyeTrackingNavigation() {
                 <p className="text-sm text-muted-foreground leading-relaxed">
                   Pandang <b>lurus ke kamera</b> dan<br />
                   tahan posisi kepala selama <b>~1.5 detik</b>.<br />
-                  <span className="text-xs text-amber-600 dark:text-amber-400 mt-2 block">
+                  <span className="text-xs text-amber-600  mt-2 block">
                     Posisi ini akan menjadi titik tengah kursor.
                   </span>
                 </p>
@@ -574,7 +574,7 @@ export function EyeTrackingNavigation() {
                   isFaceDetected ? "bg-green-500" : "bg-amber-500"
                 }`} />
                 {isFaceDetected
-                  ? "Wajah terdeteksi — sampling posisi..."
+                  ? "Wajah terdeteksi â€” sampling posisi..."
                   : "Arahkan wajah ke kamera"}
               </div>
             </motion.div>
@@ -582,7 +582,7 @@ export function EyeTrackingNavigation() {
         )}
       </AnimatePresence>
 
-      {/* ── Widget ────────────────────────────────────────────────────────────── */}
+      {/* â”€â”€ Widget â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <div
         ref={containerRef}
         className="fixed z-[9990]"
@@ -681,7 +681,7 @@ export function EyeTrackingNavigation() {
                     {/* Calibrating banner */}
                     {isCalibrating && (
                       <div className="bg-amber-500/10 border border-amber-500/30 rounded-lg p-3
-                                      text-xs text-center text-amber-600 dark:text-amber-400 font-semibold">
+                                      text-xs text-center text-amber-600  font-semibold">
                         Kalibrasi otomatis...<br />
                         <span className="font-normal">Pandang lurus ke kamera ~1.5 detik</span>
                       </div>
@@ -696,13 +696,13 @@ export function EyeTrackingNavigation() {
                           exit={{ opacity: 0, height: 0 }}
                           className="bg-amber-500/10 border border-amber-500/30 rounded-lg p-3 flex flex-col gap-1"
                         >
-                          <div className="flex items-center gap-1.5 text-amber-600 dark:text-amber-400 font-semibold text-xs">
+                          <div className="flex items-center gap-1.5 text-amber-600  font-semibold text-xs">
                             <AlertCircle size={12} />
                             Wajah tidak terdeteksi
                           </div>
                           <ul className="text-xs text-muted-foreground space-y-0.5 pl-1">
-                            <li>• Pastikan wajah terlihat di kamera</li>
-                            <li>• Perbaiki pencahayaan ruangan</li>
+                            <li>â€¢ Pastikan wajah terlihat di kamera</li>
+                            <li>â€¢ Perbaiki pencahayaan ruangan</li>
                           </ul>
                         </motion.div>
                       )}
@@ -727,7 +727,7 @@ export function EyeTrackingNavigation() {
                         <span><b>Arahkan ke tepi atas/bawah</b> untuk scroll</span>
                       </div>
                       <div className="text-[10px] text-muted-foreground/70 border-t border-border pt-1.5 text-center">
-                        Kedip cepat (150–800ms) = klik. Tepi layar 16% = scroll otomatis.
+                        Kedip cepat (150â€“800ms) = klik. Tepi layar 16% = scroll otomatis.
                       </div>
                     </div>
 
@@ -770,7 +770,7 @@ export function EyeTrackingNavigation() {
                       <div className="flex items-center justify-between">
                         <span className="text-muted-foreground">Scroll</span>
                         {scrollDir === "none"
-                          ? <span className="text-muted-foreground">—</span>
+                          ? <span className="text-muted-foreground">â€”</span>
                           : scrollDir === "up"
                             ? <span className="flex items-center gap-0.5 text-primary"><ArrowUp size={9} />Atas</span>
                             : <span className="flex items-center gap-0.5 text-primary"><ArrowDown size={9} />Bawah</span>}
@@ -782,7 +782,7 @@ export function EyeTrackingNavigation() {
                           cursorPos.y >= 0 &&
                           (cursorPos.y / (typeof window !== 'undefined' ? window.innerHeight : 800)) > (1 - SCROLL_ZONE_FRAC)
                         ) ? "text-primary font-bold" : "text-foreground"}>
-                          {cursorPos.y < 0 ? "—" : `${cursorPos.y}px (${cursorPos.y > 0 ? Math.round(cursorPos.y / window.innerHeight * 100) : 0}%)`}
+                          {cursorPos.y < 0 ? "â€”" : `${cursorPos.y}px (${cursorPos.y > 0 ? Math.round(cursorPos.y / window.innerHeight * 100) : 0}%)`}
                         </span>
                       </div>
 
@@ -793,7 +793,7 @@ export function EyeTrackingNavigation() {
                             ? "text-red-500 font-bold"
                             : "text-green-500"
                         }>
-                          {debugEAR >= 0 ? debugEAR.toFixed(3) : "—"}
+                          {debugEAR >= 0 ? debugEAR.toFixed(3) : "â€”"}
                           {debugEAR >= 0 ? (debugEAR < 0.25 ? " KEDIP" : " buka") : ""}
                         </span>
                       </div>

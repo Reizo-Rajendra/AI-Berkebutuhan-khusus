@@ -42,28 +42,28 @@
 
 @layer base {
   :root {
-    --c-bg: #F8FAFC;
+    --c-bg: #F3F0FF;
     --c-surface: #FFFFFF;
-    --c-surface-2: #F1F5F9;
-    --c-surface-3: #E2E8F0;
-    --c-border: #E2E8F0;
-    --c-border-2: #CBD5E1;
-    --c-text-primary: #0F172A;
-    --c-text-secondary: #475569;
-    --c-text-muted: #64748B;
+    --c-surface-2: #EDE9FE;
+    --c-surface-3: #DDD6FE;
+    --c-border: #E9E4FF;
+    --c-border-2: #C4B5FD;
+    --c-text-primary: #1E1047;
+    --c-text-secondary: #4C3D8A;
+    --c-text-muted: #7C6FAD;
     --c-accent: #7C3AED;
-    --c-accent-dim: #6D28D9;
-    --c-accent-glow: rgba(124, 58, 237, 0.12);
-    --c-accent-subtle: rgba(124, 58, 237, 0.06);
+    --c-accent-dim: #5B21B6;
+    --c-accent-glow: rgba(124, 58, 237, 0.18);
+    --c-accent-subtle: rgba(124, 58, 237, 0.08);
     --c-accent-text: #6D28D9;
-    --c-idle: #94A3B8;
+    --c-idle: #9CA3AF;
     --c-running: #F59E0B;
     --c-done: #10B981;
     --c-error: #EF4444;
-    --c-shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05);
-    --c-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
-    --c-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
-    --c-shadow-glow: 0 0 16px rgba(124, 58, 237, 0.08);
+    --c-shadow-sm: 0 1px 3px rgba(109,40,217,0.06), 0 1px 2px rgba(109,40,217,0.04);
+    --c-shadow-md: 0 4px 16px rgba(109,40,217,0.08), 0 2px 4px rgba(109,40,217,0.04);
+    --c-shadow-lg: 0 10px 32px rgba(109,40,217,0.10), 0 4px 8px rgba(109,40,217,0.05);
+    --c-shadow-glow: 0 0 24px rgba(124,58,237,0.12);
     --sidebar-width: 256px;
     --header-height: 64px;
     --radius-sm: 8px;
@@ -73,32 +73,6 @@
     --transition-fast: 120ms cubic-bezier(0.4, 0, 0.2, 1);
     --transition-base: 220ms cubic-bezier(0.4, 0, 0.2, 1);
     --transition-slow: 380ms cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  [data-theme="dark"] {
-    --c-bg: #0F172A;
-    --c-surface: #1E293B;
-    --c-surface-2: #334155;
-    --c-surface-3: #475569;
-    --c-border: #334155;
-    --c-border-2: #475569;
-    --c-text-primary: #F8FAFC;
-    --c-text-secondary: #CBD5E1;
-    --c-text-muted: #94A3B8;
-    --c-accent: #8B5CF6;
-    --c-accent-dim: #7C3AED;
-    --c-accent-glow: rgba(139, 92, 246, 0.15);
-    --c-accent-subtle: rgba(139, 92, 246, 0.08);
-    --c-accent-text: #C4B5FD;
-    --c-idle: #64748B;
-    --c-running: #F59E0B;
-    --c-done: #10B981;
-    --c-error: #EF4444;
-    --course-card-opacity: 0.95;
-    --c-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.20);
-    --c-shadow-md: 0 4px 16px rgba(0, 0, 0, 0.25);
-    --c-shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.35);
-    --c-shadow-glow: 0 0 16px rgba(139, 92, 246, 0.12);
   }
 
   html,
@@ -220,16 +194,11 @@
 
   /* Glassmorphism */
   .glass-panel {
-    background: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.75);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     border: 1px solid rgba(255, 255, 255, 0.4);
     box-shadow: var(--shadow-sm);
-  }
-
-  [data-theme="dark"] .glass-panel {
-    background: rgba(20, 21, 24, 0.65);
-    border: 1px solid rgba(255, 255, 255, 0.08);
   }
 
   /* Premium Card */
@@ -635,13 +604,6 @@
     background: linear-gradient(135deg, #7C3AED 0%, #A855F7 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-  }
-
-  [data-theme="dark"] .glow-text {
-    background: linear-gradient(135deg, #A78BFA 0%, #C084FC 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-shadow: none;
   }
 
   /* Animations */

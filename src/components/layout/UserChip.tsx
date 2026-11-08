@@ -1,22 +1,14 @@
 "use client";
-import { useAuth } from "@/components/auth/AuthProvider";
+
+import { HeartHandshake } from "lucide-react";
 
 export function UserChip() {
-  const { user, loading } = useAuth();
-  if (loading) return <div className="skeleton w-20 h-7 rounded-full" />;
-  const name = user?.displayName?.split(" ")[0] ?? user?.email?.split("@")[0] ?? "Pengguna";
-  const defaultAvatar = name.length % 2 === 0 ? "/profile/boy.svg" : "/profile/girl.svg";
-  
   return (
-    <div className="flex items-center gap-2 pl-1 pr-3 py-1 rounded-full border border-border bg-surface text-[0.8125rem] font-bold text-secondary shadow-sm">
-      <div className="w-[26px] h-[26px] rounded-full overflow-hidden bg-surface-2">
-        <img
-          src={user?.photoURL || defaultAvatar}
-          alt={name}
-          className="w-full h-full object-cover"
-        />
+    <div className="flex items-center gap-2 pl-2 pr-3 py-1.5 rounded-full border border-[#E9E4FF] bg-white text-[0.8125rem] font-bold text-[#4C3D8A] shadow-sm">
+      <div className="w-6 h-6 rounded-full bg-violet-100 flex items-center justify-center">
+        <HeartHandshake size={13} className="text-violet-600" />
       </div>
-      <span className="hidden sm:inline">{name}</span>
+      <span className="hidden sm:inline">Pengguna</span>
     </div>
   );
 }

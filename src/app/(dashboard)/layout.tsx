@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ThemeLogo } from "@/components/layout/ThemeLogo";
-import { ThemeToggle } from "@/components/layout/ThemeToggle";
 import { SidebarNav } from "@/components/layout/SidebarNav";
 import { UserChip } from "@/components/layout/UserChip";
 import "../globals.css";
@@ -29,7 +28,6 @@ export default function DashboardLayout({
         </Link>
 
         <div className="ml-auto flex items-center gap-2">
-          <ThemeToggle />
           <UserChip />
         </div>
       </header>
