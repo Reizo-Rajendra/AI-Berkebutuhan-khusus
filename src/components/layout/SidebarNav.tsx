@@ -3,45 +3,38 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
-  Zap,
-  FolderOpen,
-  Search,
-  Brain,
+  LayoutDashboard,
+  HandMetal,
   Eye,
-  Thermometer,
-  BarChart2,
+  Mic,
+  MousePointer2,
   BookOpen,
-  PlusCircle,
+  HeartHandshake,
+  HelpCircle,
 } from "lucide-react";
 
 const NAV_SECTIONS = [
   {
     label: "Utama",
     items: [
-      { href: "/dashboard",              label: "Dashboard",   Icon: Zap        },
-      { href: "/dashboard/sessions/new",  label: "Mulai Riset",  Icon: PlusCircle },
-      { href: "/dashboard/sessions",      label: "Hasil Riset", Icon: FolderOpen },
+      { href: "/dashboard",                   label: "Beranda",         Icon: LayoutDashboard },
+      { href: "/dashboard/sign-to-voice",     label: "TanganBicara AI", Icon: HandMetal       },
+      { href: "/dashboard/vision-describer",  label: "Mata AI",         Icon: Eye             },
     ],
   },
   {
-    label: "Pembelajaran",
+    label: "Aksesibilitas",
     items: [
-      { href: "/dashboard/learn", label: "Kurikulum", Icon: BookOpen },
+      { href: "/dashboard/voice-commands",   label: "Navigasi Suara",  Icon: Mic             },
+      { href: "/dashboard/eye-tracking",     label: "Pelacak Mata",    Icon: MousePointer2   },
     ],
   },
   {
-    label: "Agen AI",
+    label: "Panduan",
     items: [
-      { href: "/dashboard/researcher", label: "Researcher", Icon: Search },
-      { href: "/dashboard/strategist", label: "Strategist", Icon: Brain  },
-      { href: "/dashboard/analyst",    label: "Analyst",    Icon: Eye    },
-    ],
-  },
-  {
-    label: "Analitik",
-    items: [
-      { href: "/dashboard/heatmaps", label: "Heatmaps", Icon: Thermometer },
-      { href: "/dashboard/reports",  label: "Reports",  Icon: BarChart2   },
+      { href: "/dashboard/hak-disabilitas", label: "Hak Disabilitas", Icon: HeartHandshake  },
+      { href: "/dashboard/panduan",         label: "Bantuan",         Icon: HelpCircle      },
+      { href: "/dashboard/learn",           label: "Pelajari Lebih",  Icon: BookOpen        },
     ],
   },
 ];
@@ -58,8 +51,6 @@ export function SidebarNav() {
             const isActive =
               href === "/dashboard"
                 ? pathname === "/dashboard"
-                : href === "/dashboard/sessions"
-                ? pathname.startsWith("/dashboard/sessions") && !pathname.startsWith("/dashboard/sessions/new")
                 : pathname.startsWith(href);
 
             return (

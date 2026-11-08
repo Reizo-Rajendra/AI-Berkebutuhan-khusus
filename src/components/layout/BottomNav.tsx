@@ -5,31 +5,27 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  Zap,
-  FolderOpen,
-  Search,
-  Brain,
+  LayoutDashboard,
+  HandMetal,
   Eye,
-  Thermometer,
-  BarChart2,
+  Mic,
+  MousePointer2,
   BookOpen,
+  HeartHandshake,
   ChevronUp,
-  PlusCircle,
 } from "lucide-react";
 
 const PRIMARY_ITEMS = [
-  { href: "/dashboard",              label: "Home",      Icon: Zap        },
-  { href: "/dashboard/sessions/new",  label: "Riset Baru", Icon: PlusCircle },
-  { href: "/dashboard/sessions",      label: "Hasil Riset", Icon: FolderOpen },
-  { href: "/dashboard/learn",        label: "Courses",    Icon: BookOpen   },
+  { href: "/dashboard",                  label: "Beranda",   Icon: LayoutDashboard },
+  { href: "/dashboard/sign-to-voice",    label: "Tangan",    Icon: HandMetal       },
+  { href: "/dashboard/vision-describer", label: "Mata AI",   Icon: Eye             },
+  { href: "/dashboard/voice-commands",   label: "Suara",     Icon: Mic             },
 ];
 
 const SECONDARY_ITEMS = [
-  { href: "/dashboard/researcher", label: "Research",  Icon: Search    },
-  { href: "/dashboard/strategist", label: "Strategy",  Icon: Brain     },
-  { href: "/dashboard/analyst",    label: "Analyst",    Icon: Eye       },
-  { href: "/dashboard/heatmaps",   label: "Heatmaps",   Icon: Thermometer},
-  { href: "/dashboard/reports",    label: "Reports",    Icon: BarChart2  },
+  { href: "/dashboard/eye-tracking",    label: "Pelacak Mata", Icon: MousePointer2  },
+  { href: "/dashboard/hak-disabilitas", label: "Hak",          Icon: HeartHandshake },
+  { href: "/dashboard/learn",           label: "Pelajari",     Icon: BookOpen       },
 ];
 
 export function BottomNav() {
@@ -63,8 +59,6 @@ export function BottomNav() {
           const isActive =
             href === "/dashboard"
               ? pathname === "/dashboard"
-              : href === "/dashboard/sessions"
-              ? pathname.startsWith("/dashboard/sessions") && !pathname.startsWith("/dashboard/sessions/new")
               : pathname.startsWith(href);
 
           return (
@@ -75,7 +69,7 @@ export function BottomNav() {
         {/* Toggle Button */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className={`relative flex flex-col items-center justify-center w-12 h-10 rounded-xl transition-all duration-300 ${isOpen ? "bg-accent text-[#12200A]" : "text-secondary opacity-60"}`}
+          className={`relative flex flex-col items-center justify-center w-12 h-10 rounded-xl transition-all duration-300 ${isOpen ? "bg-accent text-white" : "text-secondary opacity-60"}`}
         >
           <motion.div
             animate={{ rotate: isOpen ? 180 : 0 }}

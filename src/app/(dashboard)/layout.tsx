@@ -10,7 +10,10 @@ import { BottomNav } from "@/components/layout/BottomNav";
 import { SpeechToAction } from "@/components/accessibility/SpeechToAction";
 import { EyeTrackingNavigation } from "@/components/accessibility/EyeTrackingNavigation";
 
-export const metadata: Metadata = { title: "Dashboard" };
+export const metadata: Metadata = {
+  title: { default: "POLANITAS — Platform Inklusif AI", template: "%s | POLANITAS" },
+  description: "Platform AI inklusif untuk penyandang disabilitas: TanganBicara AI, Mata AI, navigasi suara & pelacak mata.",
+};
 
 export default function DashboardLayout({
   children,

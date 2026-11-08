@@ -42,30 +42,30 @@
 
 @layer base {
   :root {
-    --c-bg: #F8F9FA;
+    --c-bg: #F8FAFC;
     --c-surface: #FFFFFF;
-    --c-surface-2: #F1F3F5;
-    --c-surface-3: #E9ECEF;
-    --c-border: #DEE2E6;
-    --c-border-2: #CED4DA;
-    --c-text-primary: #1A1D23;
-    --c-text-secondary: #495057;
-    --c-text-muted: #868E96;
-    --c-accent: #6EE12B;
-    --c-accent-dim: #5BC721;
-    --c-accent-glow: rgba(110, 225, 43, 0.20);
-    --c-accent-subtle: rgba(110, 225, 43, 0.08);
-    --c-accent-text: #3A7D14;
-    --c-idle: #ADB5BD;
+    --c-surface-2: #F1F5F9;
+    --c-surface-3: #E2E8F0;
+    --c-border: #E2E8F0;
+    --c-border-2: #CBD5E1;
+    --c-text-primary: #0F172A;
+    --c-text-secondary: #475569;
+    --c-text-muted: #64748B;
+    --c-accent: #7C3AED;
+    --c-accent-dim: #6D28D9;
+    --c-accent-glow: rgba(124, 58, 237, 0.12);
+    --c-accent-subtle: rgba(124, 58, 237, 0.06);
+    --c-accent-text: #6D28D9;
+    --c-idle: #94A3B8;
     --c-running: #F59E0B;
-    --c-done: #22C55E;
+    --c-done: #10B981;
     --c-error: #EF4444;
-    --c-shadow-sm: 0 2px 8px -2px rgba(0, 0, 0, 0.05), 0 1px 4px -1px rgba(0, 0, 0, 0.03);
-    --c-shadow-md: 0 12px 32px -8px rgba(0, 0, 0, 0.08), 0 4px 16px -4px rgba(0, 0, 0, 0.04);
-    --c-shadow-lg: 0 24px 48px -12px rgba(0, 0, 0, 0.12), 0 12px 24px -8px rgba(0, 0, 0, 0.06);
-    --c-shadow-glow: 0 0 20px rgba(110, 225, 43, 0.2);
-    --sidebar-width: 248px;
-    --header-height: 60px;
+    --c-shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05);
+    --c-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+    --c-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
+    --c-shadow-glow: 0 0 16px rgba(124, 58, 237, 0.08);
+    --sidebar-width: 256px;
+    --header-height: 64px;
     --radius-sm: 8px;
     --radius-md: 12px;
     --radius-lg: 16px;
@@ -76,29 +76,29 @@
   }
 
   [data-theme="dark"] {
-    --c-bg: #0C0D0F;
-    --c-surface: #141518;
-    --c-surface-2: #1C1D21;
-    --c-surface-3: #24252A;
-    --c-border: #2A2B30;
-    --c-border-2: #3A3B42;
-    --c-text-primary: #F1F3F5;
-    --c-text-secondary: #A6ACBA;
-    --c-text-muted: #5C6370;
-    --c-accent: #B8FF3F;
-    --c-accent-dim: #8FD42A;
-    --c-accent-glow: rgba(184, 255, 63, 0.15);
-    --c-accent-subtle: rgba(184, 255, 63, 0.07);
-    --c-accent-text: #B8FF3F;
-    --c-idle: #4A4B52;
+    --c-bg: #0F172A;
+    --c-surface: #1E293B;
+    --c-surface-2: #334155;
+    --c-surface-3: #475569;
+    --c-border: #334155;
+    --c-border-2: #475569;
+    --c-text-primary: #F8FAFC;
+    --c-text-secondary: #CBD5E1;
+    --c-text-muted: #94A3B8;
+    --c-accent: #8B5CF6;
+    --c-accent-dim: #7C3AED;
+    --c-accent-glow: rgba(139, 92, 246, 0.15);
+    --c-accent-subtle: rgba(139, 92, 246, 0.08);
+    --c-accent-text: #C4B5FD;
+    --c-idle: #64748B;
     --c-running: #F59E0B;
-    --c-done: #B8FF3F;
+    --c-done: #10B981;
     --c-error: #EF4444;
-    --course-card-opacity: 0.85;
-    --c-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.30);
-    --c-shadow-md: 0 4px 16px rgba(0, 0, 0, 0.40);
-    --c-shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.50);
-    --c-shadow-glow: 0 0 20px rgba(184, 255, 63, 0.15);
+    --course-card-opacity: 0.95;
+    --c-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.20);
+    --c-shadow-md: 0 4px 16px rgba(0, 0, 0, 0.25);
+    --c-shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.35);
+    --c-shadow-glow: 0 0 16px rgba(139, 92, 246, 0.12);
   }
 
   html,
@@ -630,14 +630,18 @@
     border-radius: var(--radius-sm);
   }
 
-  /* Glow Text */
+  /* Gradient & Accent Text (Accessible, No Neon) */
   .glow-text {
-    color: var(--color-accent-text);
+    background: linear-gradient(135deg, #7C3AED 0%, #A855F7 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 
   [data-theme="dark"] .glow-text {
-    color: var(--color-accent);
-    text-shadow: 0 0 24px var(--color-accent-glow);
+    background: linear-gradient(135deg, #A78BFA 0%, #C084FC 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: none;
   }
 
   /* Animations */

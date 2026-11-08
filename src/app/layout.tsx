@@ -17,12 +17,12 @@ const spaceMono = Space_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Polanitas",
-    template: "",
+    default: "POLANITAS — Platform Inklusif AI",
+    template: "%s | POLANITAS",
   },
   description:
-    "Platform strategi dan analisis konten digital bertenaga Multi-Agent AI dan Eye Tracking. Riset tren otomatis, strategi konten viral, dan analisis perhatian berbasis biometrik.",
-  keywords: ["content strategy", "AI marketing", "eye tracking", "tren indonesia", "analisis konten"],
+    "Platform AI inklusif untuk penyandang disabilitas Indonesia: TanganBicara AI (gerakan tangan ke suara), Mata AI (kamera deskripsi lingkungan), navigasi suara, dan pelacak mata.",
+  keywords: ["disabilitas", "tunawicara", "tunanetra", "ai inklusif", "tangan bicara", "mata ai", "eye tracking", "aksesibilitas"],
 };
 
 export default function RootLayout({
